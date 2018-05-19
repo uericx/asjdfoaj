@@ -20,32 +20,36 @@
         <div class="row">
           <div class="col-sm">
             <h1>Código</h1>
-            <h2>CNR04</h2><br>
+            <h2>@{{order.subcategory.codigo}}</h2><br>
+            <h1>Terminado</h1>
+            <h2>@{{order.subcategory.category.nombre}}</h2><br>
             <h1>Descripción</h1>
-            <h2>Lorem ipsum dolor </h2><br>
-            <h1>Cantidad de piezas: </h1>
-            <h2>20</h2>
+            <h2>@{{order.subcategory.descripcion}}</h2><br>
+            <h1>Restante de piezas: </h1>
+            <h2>@{{order.restante}}</h2>
           </div>
           <div class="col-sm">
             <h1>Trabajador 1</h1>
-            <select class="custom-select">
-              <option selected="">Trabajador</option>
-              <option value="1">Ericx</option>
-              <option value="2">Joe</option>
-              <option value="3">Fer</option>
-            </select><br><br>
-            <h1>Trabajador 2</h1>
-            <select class="custom-select">
-              <option selected="">Trabajador</option>
-              <option value="1">Ericx</option>
-              <option value="2">Joe</option>
-              <option value="3">Fer</option>
-            </select><br><br>
-            <div class="form-group">
-              <h1>Cantidad</h1>
-              <input class="form-control" type="number" placeholder="Ingrese una cantidad">
-            </div><br><br>
-            <button class="btn btn-primary" type="submit">Enviar</button>
+            <form @submit="addWork">
+              <select class="custom-select" name="worker" v-model="form.worker_id">
+                <option selected="">Trabajador</option>
+                @foreach($workers as $worker)
+                <option value="{{$worker->id}}">{{$worker->nombre}}</option>
+                @endforeach
+              </select><br><br>
+              <h1>Trabajador 2</h1>
+              <select class="custom-select" name="worker2" v-model="form.worker2_id">
+                <option selected="">Trabajador</option>
+                @foreach($workers as $worker)
+                <option value="{{$worker->id}}">{{$worker->nombre}}</option>
+                @endforeach
+              </select><br><br>
+              <div class="form-group">
+                <h1>Cantidad</h1>
+                <input class="form-control" type="number" v-model="form.cantidad" name="cantidad" placeholder="Ingrese una cantidad">
+              </div><br><br>
+              <button class="btn btn-primary" type="submit">Enviar</button>
+            </form>
           </div>
         </div>
       </div>

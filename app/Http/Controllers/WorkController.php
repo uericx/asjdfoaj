@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Order;
 use Illuminate\Http\Request;
+use App\Worker;
+use App\Order;
+use App\Work;
 
-class OrderController extends Controller
+class WorkController extends Controller
 {
-    /**
+    //
+	/**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -15,8 +18,8 @@ class OrderController extends Controller
     public function index()
     {
         //
-        $order = Order::orderBy('prioridad','DESC')->orderBy('id','ASC')->where('terminado',0)->with('subcategory.category')->get();
-        return $order->first();
+        $workers = Worker::all();
+        return view('index',compact('workers'));
     }
 
     /**
@@ -38,6 +41,14 @@ class OrderController extends Controller
     public function store(Request $request)
     {
         //
+        $work = new Work($request->all());
+        $work->save();
+        if($work->order->restante <= 0){
+        	$work->order->terminado = 1;
+        	$work->order->save();
+        }
+     	$order = \App::call('App\Http\Controllers\OrderController@index');
+        return $order;
     }
 
     /**

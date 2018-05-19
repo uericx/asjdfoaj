@@ -13872,8 +13872,12 @@ module.exports = __webpack_require__(43);
 
 /***/ }),
 /* 12 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
 
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -13885,6 +13889,7 @@ __webpack_require__(13);
 
 window.Vue = __webpack_require__(36);
 
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -13894,7 +13899,60 @@ window.Vue = __webpack_require__(36);
 Vue.component('example-component', __webpack_require__(39));
 
 var app = new Vue({
-  el: '#app'
+    el: '#app',
+    data: {
+        order: [],
+        form: {
+            worker: '',
+            worker2: '',
+            cantidad: '',
+            order_id: ''
+        }
+    },
+    mounted: function mounted() {
+        var _this = this;
+
+        this.$nextTick(function () {
+            _this.fetchData();
+        });
+        // console.log("")
+    },
+    methods: {
+        onReset: function onReset(evt) {
+            evt.preventDefault();
+
+            this.form.worker_id = '';
+            this.form.worker2_id = '';
+            this.form.cantidad = '';
+        },
+
+        fetchData: function fetchData() {
+            var _this2 = this;
+
+            __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('/order').then(function (response) {
+                _this2.order = response.data;
+                console.log(_this2.order);
+            }).catch(function (e) {
+                _this2.errors.push(e);
+            });
+        },
+        addWork: function addWork(evt) {
+            var _this3 = this;
+
+            evt.preventDefault();
+            this.form.order_id = this.order.id;
+
+            console.log(this.form);
+            __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post('/work', this.form).then(function (response) {
+                console.log(response.data);
+                _this3.order = response.data;
+                _this3.form.cantidad = '';
+            }).catch(function (e) {
+                _this3.errors.push(e);
+            });
+        }
+    }
+
 });
 
 /***/ }),

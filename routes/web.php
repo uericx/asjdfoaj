@@ -11,6 +11,12 @@
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('index');
-});
+});*/
+
+Route::get('/', 'WorkController@index');
+
+Route::post('/work', 'WorkController@store');
+Route::get('/order', 'OrderController@index');
+

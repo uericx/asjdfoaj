@@ -9,6 +9,7 @@ class Order extends Model
 {
     //
     use SoftDeletes;
+    protected $appends = ['progress', 'restante'];
     public function subcategory()
     {
         return $this->belongsTo('App\Subcategory');

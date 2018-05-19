@@ -12,35 +12,41 @@ html(lang="es")
 				.row
 					.col-sm
 						h1 Código
-						h2 CNR04
+						h2 @{{order.subcategory.codigo}}
+						br
+						h1 Terminado
+						h2 @{{order.subcategory.category.nombre}}
 						br
 						h1 Descripción
-						h2 Lorem ipsum dolor 
+						h2 @{{order.subcategory.descripcion}}
 						br
-						h1 Cantidad de piezas: 
-						h2 20
+						h1 Restante de piezas: 
+						h2 @{{order.restante}}
 					.col-sm
 						h1 Trabajador 1
-						select.custom-select
-							option(selected='') Trabajador
-							option(value='1') Ericx
-							option(value='2') Joe
-							option(value='3') Fer
-						br
-						br
-						h1 Trabajador 2
-						select.custom-select
-							option(selected='') Trabajador
-							option(value='1') Ericx
-							option(value='2') Joe
-							option(value='3') Fer
-						br
-						br
-						.form-group
-							h1 Cantidad
-							input.form-control(type='number' placeholder='Ingrese una cantidad')
-						br
-						br
-						button.btn.btn-primary(type='submit') Enviar
+						//-{{dump($workers)}}
+						form(@submit="addWork")
+							select.custom-select(name="worker" v-model="form.worker_id")
+								option(selected='') Trabajador
+								@foreach($workers as $worker)
+								option(value!='{{$worker->id}}') {{$worker->nombre}}
+								@endforeach
+								
+							br
+							br
+							h1 Trabajador 2
+							select.custom-select(name="worker2" v-model="form.worker2_id")
+								option(selected='') Trabajador
+								@foreach($workers as $worker)
+								option(value!='{{$worker->id}}') {{$worker->nombre}}
+								@endforeach
+							br
+							br
+							.form-group
+								h1 Cantidad
+								input.form-control(type='number' v-model="form.cantidad" name="cantidad" placeholder='Ingrese una cantidad')
+							br
+							br
+							button.btn.btn-primary(type='submit') Enviar
 
 		include includes/footer
