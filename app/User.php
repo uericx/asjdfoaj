@@ -19,7 +19,11 @@ class User extends Authenticatable
     ];
     public function userType()
     {
-        return $this->hasMany('App\UserType');
+        return $this->belongsTo('App\UserType');
+    }
+    public function order()
+    {
+        return $this->hasMany('App\Order');
     }
     /**
      * The attributes that should be hidden for arrays.

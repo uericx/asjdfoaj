@@ -13,7 +13,7 @@ class CreateWorkTable extends Migration
      */
     public function up()
     {
-        Schema::create('work', function (Blueprint $table) {
+        Schema::create('works', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('worker_id')->nullable();
             $table->foreign('worker_id')->references('id')->on('workers');
@@ -31,6 +31,6 @@ class CreateWorkTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('work');
+        Schema::dropIfExists('works');
     }
 }
