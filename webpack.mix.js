@@ -11,5 +11,10 @@ let mix = require('laravel-mix');
  |
  */
 
+mix.browserSync('software.test');
+
+mix.pug = require('laravel-mix-blade-pug');
+	mix.pug('resources/assets/pug', 'resources/views');
+	
 mix.js('resources/assets/js/app.js', 'public/js')
    .sass('resources/assets/sass/app.scss', 'public/css');

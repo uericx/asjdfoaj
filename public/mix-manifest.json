@@ -1,4 +1,9 @@
 {
     "/js/app.js": "/js/app.js",
-    "/css/app.css": "/css/app.css"
+    "/css/app.css": "/css/app.css",
+    "/resources/views/includes/errors.blade.php": "/resources/views/includes/errors.blade.php",
+    "/resources/views/includes/footer.blade.php": "/resources/views/includes/footer.blade.php",
+    "/resources/views/includes/head.blade.php": "/resources/views/includes/head.blade.php",
+    "/resources/views/includes/header.blade.php": "/resources/views/includes/header.blade.php",
+    "/resources/views/index.blade.php": "/resources/views/index.blade.php"
 }
