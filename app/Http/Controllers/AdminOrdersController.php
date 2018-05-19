@@ -24,37 +24,32 @@
 			$this->button_show = true;
 			$this->button_filter = true;
 			$this->button_import = false;
-			$this->button_export = false;
+			$this->button_export = true;
 			$this->table = "orders";
 			# END CONFIGURATION DO NOT REMOVE THIS LINE
 
 			# START COLUMNS DO NOT REMOVE THIS LINE
 			$this->col = [];
-			$this->col[] = ["label"=>"User Id","name"=>"user_id"];
 			$this->col[] = ["label"=>"Prioridad","name"=>"prioridad"];
 			$this->col[] = ["label"=>"Cantidad","name"=>"cantidad"];
-			$this->col[] = ["label"=>"Terminado","name"=>"terminado"];
 			$this->col[] = ["label"=>"Subcategoría Código","name"=>"subcategory_id","join"=>"subcategories,codigo"];
 			$this->col[] = ["label"=>"Subcategoría Descripción","name"=>"subcategory_id","join"=>"subcategories,descripcion"];
 			$this->col[] = ["label"=>"Fecha","name"=>"created_at"];
+			$this->col[] = ["label"=>"Creado Por","name"=>"user_id","join"=>"cms_users,name"];
 			# END COLUMNS DO NOT REMOVE THIS LINE
 
 			# START FORM DO NOT REMOVE THIS LINE
 			$this->form = [];
-			$this->form[] = ['label'=>'User Id','name'=>'user_id','type'=>'select2','validation'=>'required|integer|min:0','width'=>'col-sm-10','datatable'=>'users,name'];
 			$this->form[] = ['label'=>'Prioridad','name'=>'prioridad','type'=>'number','validation'=>'required|integer|min:0','width'=>'col-sm-10'];
 			$this->form[] = ['label'=>'Cantidad','name'=>'cantidad','type'=>'number','validation'=>'required|integer|min:0','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Terminado','name'=>'terminado','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-10'];
 			$this->form[] = ['label'=>'Subcategoría','name'=>'subcategory_id','type'=>'select2','validation'=>'required|integer|min:0','width'=>'col-sm-10','datatable'=>'subcategories,codigo','datatable_format'=>'codigo,\' - \',descripcion'];
 			# END FORM DO NOT REMOVE THIS LINE
 
 			# OLD START FORM
 			//$this->form = [];
-			//$this->form[] = ['label'=>'User Id','name'=>'user_id','type'=>'select2','validation'=>'required|integer|min:0','width'=>'col-sm-10','datatable'=>'users,nombre'];
 			//$this->form[] = ['label'=>'Prioridad','name'=>'prioridad','type'=>'number','validation'=>'required|integer|min:0','width'=>'col-sm-10'];
 			//$this->form[] = ['label'=>'Cantidad','name'=>'cantidad','type'=>'number','validation'=>'required|integer|min:0','width'=>'col-sm-10'];
-			//$this->form[] = ['label'=>'Terminado','name'=>'terminado','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-10'];
-			//$this->form[] = ['label'=>'Subcategoría','name'=>'subcategory_id','type'=>'select2','validation'=>'required|integer|min:0','width'=>'col-sm-10','datatable'=>'subcategories,codigo','datatable_format'=>'codigo,\' - \',descripcion'];
+			//$this->form[] = ['label'=>'Subcategoría','name'=>'subcategory_id','type'=>'select2','validation'=>'required|integer|min:0','width'=>'col-sm-10','datatable'=>'subcategories, codigo','datatable_format'=>'codigo,\' - \',descripcion'];
 			# OLD END FORM
 
 			/* 
@@ -264,7 +259,7 @@
 	    */
 	    public function hook_before_add(&$postdata) {        
 	        //Your code here
-
+	    	$postdata['user_id'] = CRUDBooster::myId();
 	    }
 
 	    /* 
