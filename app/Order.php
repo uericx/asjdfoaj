@@ -21,4 +21,19 @@ class Order extends Model
     {
         return $this->belongsTo('App\User');
     }
+
+
+    public function getProgressAttribute(){
+        $total = 0;
+        foreach ($this->work as $single) {
+            # code...
+            $total += $single->cantidad;
+        }
+        return $total;
+    }
+    public function getRestanteAttribute(){
+        return $this->cantidad - $this->progress;
+    }
+
+
 }

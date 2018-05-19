@@ -19,6 +19,7 @@ class CreateWorkTable extends Migration
             $table->foreign('worker_id')->references('id')->on('workers');
             $table->unsignedInteger('order_id')->nullable();
             $table->foreign('order_id')->references('id')->on('orders');
+            $table->integer('cantidad');
             $table->timestamps();
             $table->softDeletes();
         });

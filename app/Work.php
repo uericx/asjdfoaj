@@ -13,6 +13,10 @@ class Work extends Model
     {
         return $this->belongsTo('App\Worker');
     }
+    public function worker2()
+    {
+        return $this->belongsTo('App\Worker');
+    }
     public function order()
     {
         return $this->belongsTo('App\Order');
