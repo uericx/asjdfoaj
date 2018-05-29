@@ -15,7 +15,7 @@
   </head>
   <body class="index">
     <div id="app">
-      <h1>Inicio2</h1><br><br>
+      <h1 class="titulo">Inicio2</h1><br><br>
       <div class="container-fluid">
         <div class="row">
           <div class="col-sm">
@@ -31,17 +31,17 @@
           <div class="col-sm">
             <h1>Trabajador 1</h1>
             <form @submit="addWork">
-              <select class="custom-select" name="worker" v-model="form.worker_id">
+              <select class="custom-select" name="worker" id="Select1" v-model="form.worker_id">
                 <option selected="">Trabajador</option>
                 @foreach($workers as $worker)
-                <option value="{{$worker->id}}">{{$worker->nombre}}</option>
+                <option value="{{$worker->id}}" v-if="form.worker2_id!={{$worker->id}}">{{$worker->nombre}} {{$worker->apellido}}</option>
                 @endforeach
               </select><br><br>
               <h1>Trabajador 2</h1>
-              <select class="custom-select" name="worker2" v-model="form.worker2_id">
+              <select class="custom-select" name="worker2" id="Select2" v-model="form.worker2_id">
                 <option selected="">Trabajador</option>
                 @foreach($workers as $worker)
-                <option value="{{$worker->id}}">{{$worker->nombre}}</option>
+                <option value="{{$worker->id}}" v-if="form.worker_id!={{$worker->id}}">{{$worker->nombre}} {{$worker->apellido}}</option>
                 @endforeach
               </select><br><br>
               <div class="form-group">
@@ -55,5 +55,6 @@
       </div>
     </div>
     <script src="{{ asset('js/app.js')}}"> </script>
+    <script src="{{ asset('js/general.min.js') }}"> </script>
   </body>
 </html>

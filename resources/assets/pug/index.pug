@@ -2,10 +2,11 @@ doctype
 html(lang="es")
 	head
 		include includes/head
+		
 	body.index
 		include includes/header
 		#app
-			h1 Inicio2
+			h1.titulo Inicio2
 			br
 			br
 			.container-fluid
@@ -26,19 +27,19 @@ html(lang="es")
 						h1 Trabajador 1
 						//-{{dump($workers)}}
 						form(@submit="addWork")
-							select.custom-select(name="worker" v-model="form.worker_id")
+							select.custom-select(name="worker" id="Select1" v-model="form.worker_id")
 								option(selected='') Trabajador
 								@foreach($workers as $worker)
-								option(value!='{{$worker->id}}') {{$worker->nombre}}
+								option(value!='{{$worker->id}}' v-if!='form.worker2_id!={{$worker->id}}') {{$worker->nombre}} {{$worker->apellido}}
 								@endforeach
 								
 							br
 							br
 							h1 Trabajador 2
-							select.custom-select(name="worker2" v-model="form.worker2_id")
+							select.custom-select(name="worker2" id="Select2" v-model="form.worker2_id")
 								option(selected='') Trabajador
 								@foreach($workers as $worker)
-								option(value!='{{$worker->id}}') {{$worker->nombre}}
+								option(value!='{{$worker->id}}' v-if!='form.worker_id!={{$worker->id}}') {{$worker->nombre}} {{$worker->apellido}}
 								@endforeach
 							br
 							br
@@ -48,5 +49,5 @@ html(lang="es")
 							br
 							br
 							button.btn.btn-primary(type='submit') Enviar
-
+ 
 		include includes/footer
