@@ -16,6 +16,7 @@ class OrderController extends Controller
     {
         //
         $order = Order::orderBy('prioridad','DESC')->orderBy('id','ASC')->where('terminado',0)->with('subcategory.category')->get();
+        //$order = Order::orderBy('prioridad','DESC')->orderBy('id','ASC')->with('subcategory.category')->get();
         return $order->first();
     }
 

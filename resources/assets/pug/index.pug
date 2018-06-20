@@ -6,48 +6,51 @@ html(lang="es")
 	body.index
 		include includes/header
 		#app
-			h1.titulo Inicio2
-			br
-			br
-			.container-fluid
-				.row
-					.col-sm
-						h1 Código
-						h2 @{{order.subcategory.codigo}}
-						br
-						h1 Terminado
-						h2 @{{order.subcategory.category.nombre}}
-						br
-						h1 Descripción
-						h2 @{{order.subcategory.descripcion}}
-						br
-						h1 Restante de piezas: 
-						h2 @{{order.restante}}
-					.col-sm
-						h1 Trabajador 1
-						//-{{dump($workers)}}
-						form(@submit="addWork")
-							select.custom-select(name="worker" id="Select1" v-model="form.worker_id")
-								option(selected='') Trabajador
-								@foreach($workers as $worker)
-								option(value!='{{$worker->id}}' v-if!='form.worker2_id!={{$worker->id}}') {{$worker->nombre}} {{$worker->apellido}}
-								@endforeach
-								
-							br
-							br
-							h1 Trabajador 2
-							select.custom-select(name="worker2" id="Select2" v-model="form.worker2_id")
-								option(selected='') Trabajador
-								@foreach($workers as $worker)
-								option(value!='{{$worker->id}}' v-if!='form.worker_id!={{$worker->id}}') {{$worker->nombre}} {{$worker->apellido}}
-								@endforeach
-							br
-							br
-							.form-group
-								h1 Cantidad
-								input.form-control(type='number' v-model="form.cantidad" name="cantidad" placeholder='Ingrese una cantidad')
-							br
-							br
-							button.btn.btn-primary(type='submit') Enviar
+			.commonContainer
+				.logo
+					img(src="img/logo_thp.png")
+				h1.titulo Molino Laminador
+				.container
+					.row
+						.col-sm.blanco
+							.contenedor
+								h1 Código
+								h2 @{{order.subcategory.codigo}}
+								br
+								h1 Terminado
+								h2 @{{order.subcategory.category.nombre}}
+								br
+								h1 Descripción
+								h2 @{{order.subcategory.descripcion}}
+								br
+								h1 Restante de piezas: 
+								h2 @{{order.restante}}
+						.col-sm.tinto
+							.contenedor
+								h1 Colaborador 1
+								//-{{dump($workers)}}
+								form(@submit="addWork")
+									select.custom-select(name="worker" id="Select1" v-model="form.worker_id")
+										
+										@foreach($workers as $worker)
+										option(value!='{{$worker->id}}' v-if!='form.worker2_id!={{$worker->id}}') {{$worker->nombre}} {{$worker->apellido}}
+										@endforeach
+										
+									br
+									br
+									h1 Colaborador 2
+									select.custom-select(name="worker2" id="Select2" v-model="form.worker2_id")
+										
+										@foreach($workers as $worker)
+										option(value!='{{$worker->id}}' v-if!='form.worker_id!={{$worker->id}}') {{$worker->nombre}} {{$worker->apellido}}
+										@endforeach
+									br
+									.form-group
+										h1 Cantidad
+										input.form-control(type='number' v-model="form.cantidad" name="cantidad" placeholder='Ingrese una cantidad')
+									br
+									button.btn.btn-primary(type='submit') Enviar
+								.clear
+							.clear
  
 		include includes/footer
