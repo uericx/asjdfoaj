@@ -30,10 +30,10 @@
 
 			# START COLUMNS DO NOT REMOVE THIS LINE
 			$this->col = [];
-			$this->col[] = ["label"=>"Trabajo","name"=>"id"];
-			$this->col[] = ["label"=>"Fecha de Trabajo","name"=>"created_at"];
-			$this->col[] = ["label"=>"Pedido","name"=>"order_id","join"=>"orders,id"];
-			$this->col[] = ["label"=>"Fecha de Pedido","name"=>"order_id","join"=>"orders,created_at"];
+			$this->col[] = ["label"=>"Trabajo","name"=>"order_id","join"=>"orders,terminado"];
+			$this->col[] = ["label"=>"Fecha Trabajo Realizado","name"=>"created_at"];
+			$this->col[] = ["label"=>"Pedido","name"=>"order_id","join"=>"orders,numero_de_pedido"];
+			$this->col[] = ["label"=>"Fecha del Pedido","name"=>"order_id","join"=>"orders,created_at"];
 			$this->col[] = ["label"=>"Trabajador 1","name"=>"worker_id","join"=>"workers,nombre"];
 			$this->col[] = ["label"=>"Trabajador 2","name"=>"worker2_id","join"=>"workers,nombre"];
 			$this->col[] = ["label"=>"Cantidad","name"=>"cantidad"];
@@ -48,9 +48,9 @@
 
 			# OLD START FORM
 			//$this->form = [];
-			//$this->form[] = ["label"=>"Worker Id","name"=>"worker_id","type"=>"select2","required"=>TRUE,"validation"=>"required|integer|min:0","datatable"=>"worker,id"];
-			//$this->form[] = ["label"=>"Order Id","name"=>"order_id","type"=>"select2","required"=>TRUE,"validation"=>"required|integer|min:0","datatable"=>"order,id"];
-			//$this->form[] = ["label"=>"Cantidad","name"=>"cantidad","type"=>"number","required"=>TRUE,"validation"=>"required|integer|min:0"];
+			//$this->form[] = ['label'=>'Worker Id','name'=>'worker_id','type'=>'select2','validation'=>'required|integer|min:0','width'=>'col-sm-10','datatable'=>'worker,id'];
+			//$this->form[] = ['label'=>'Order Id','name'=>'order_id','type'=>'select2','validation'=>'required|integer|min:0','width'=>'col-sm-10','datatable'=>'order,id'];
+			//$this->form[] = ['label'=>'Cantidad','name'=>'cantidad','type'=>'number','validation'=>'required|integer|min:0','width'=>'col-sm-10'];
 			# OLD END FORM
 
 			/* 

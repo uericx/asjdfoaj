@@ -2,15 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Priority;
 use Illuminate\Http\Request;
-use App\Worker;
-use App\Order;
-use App\Work;
 
-class WorkController extends Controller
+class PriorityController extends Controller
 {
-    //
-	/**
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -18,8 +15,6 @@ class WorkController extends Controller
     public function index()
     {
         //
-        $workers = Worker::all();
-        return view('index',compact('workers'));
     }
 
     /**
@@ -41,28 +36,15 @@ class WorkController extends Controller
     public function store(Request $request)
     {
         //
-        $work = new Work($request->all());
-        $work->save();
-        if($work->order->restante <= 0){
-        	$work->order->terminado = 1;
-        	$work->order->save();
-            
-        }
-        if($work->order->terminado = 1){
-            $work->order->numero_de_pedido = 1;
-            $work->order->save();
-        }
-     	$order = \App::call('App\Http\Controllers\OrderController@index');
-        return $order;
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Order  $order
+     * @param  \App\Priority  $priority
      * @return \Illuminate\Http\Response
      */
-    public function show(Order $order)
+    public function show(Priority $priority)
     {
         //
     }
@@ -70,10 +52,10 @@ class WorkController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Order  $order
+     * @param  \App\Priority  $priority
      * @return \Illuminate\Http\Response
      */
-    public function edit(Order $order)
+    public function edit(Priority $priority)
     {
         //
     }
@@ -82,10 +64,10 @@ class WorkController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Order  $order
+     * @param  \App\Priority  $priority
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Order $order)
+    public function update(Request $request, Priority $priority)
     {
         //
     }
@@ -93,10 +75,10 @@ class WorkController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Order  $order
+     * @param  \App\Priority  $priority
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Order $order)
+    public function destroy(Priority $priority)
     {
         //
     }

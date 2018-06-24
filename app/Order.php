@@ -22,7 +22,10 @@ class Order extends Model
     {
         return $this->belongsTo('App\User');
     }
-
+    public function priority()
+    {
+        return $this->belongsTo('App\Priority');
+    }
 
     public function getProgressAttribute(){
         $total = 0;
@@ -35,6 +38,4 @@ class Order extends Model
     public function getRestanteAttribute(){
         return $this->cantidad - $this->progress;
     }
-
-
 }

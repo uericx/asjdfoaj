@@ -30,7 +30,8 @@
 
 			# START COLUMNS DO NOT REMOVE THIS LINE
 			$this->col = [];
-			$this->col[] = ["label"=>"Prioridad","name"=>"prioridad"];
+			$this->col[] = ["label"=>"Prioridad","name"=>"priority_id","join"=>"priorities,nombre"];
+			$this->col[] = ["label"=>"Número de Pedido","name"=>"numero_de_pedido"];
 			$this->col[] = ["label"=>"Cantidad","name"=>"cantidad"];
 			$this->col[] = ["label"=>"Subcategoría Código","name"=>"subcategory_id","join"=>"subcategories,codigo"];
 			$this->col[] = ["label"=>"Subcategoría Descripción","name"=>"subcategory_id","join"=>"subcategories,descripcion"];
@@ -40,16 +41,19 @@
 
 			# START FORM DO NOT REMOVE THIS LINE
 			$this->form = [];
-			$this->form[] = ['label'=>'Prioridad','name'=>'prioridad','type'=>'number','validation'=>'required|integer|min:0','width'=>'col-sm-10'];
+			$this->form[] = ['label'=>'Prioridad','name'=>'priority_id','type'=>'select2','validation'=>'required|integer|min:0','width'=>'col-sm-10','datatable'=>'priorities,nombre'];
+			$this->form[] = ['label'=>'Número de Pedido','name'=>'numero_de_pedido','type'=>'text','validation'=>'required','width'=>'col-sm-9'];
 			$this->form[] = ['label'=>'Cantidad','name'=>'cantidad','type'=>'number','validation'=>'required|integer|min:0','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Subcategoría','name'=>'subcategory_id','type'=>'select2','validation'=>'required|integer|min:0','width'=>'col-sm-10','datatable'=>'subcategories,codigo','datatable_format'=>'codigo,\' - \',descripcion'];
+			$this->form[] = ['label'=>'Subcategoría','name'=>'subcategory_id','type'=>'select2','validation'=>'required|integer|min:0','width'=>'col-sm-10','datatable'=>'subcategories,descripcion'];
 			# END FORM DO NOT REMOVE THIS LINE
 
 			# OLD START FORM
 			//$this->form = [];
-			//$this->form[] = ['label'=>'Prioridad','name'=>'prioridad','type'=>'number','validation'=>'required|integer|min:0','width'=>'col-sm-10'];
+			//$this->form[] = ['label'=>'Prioridad','name'=>'priority_id','type'=>'select2','validation'=>'required|integer|min:0','width'=>'col-sm-10','datatable'=>'priorities,nombre'];
+			//$this->form[] = ['label'=>'Número de Pedido','name'=>'numero_de_pedido','type'=>'text','validation'=>'required','width'=>'col-sm-9'];
 			//$this->form[] = ['label'=>'Cantidad','name'=>'cantidad','type'=>'number','validation'=>'required|integer|min:0','width'=>'col-sm-10'];
-			//$this->form[] = ['label'=>'Subcategoría','name'=>'subcategory_id','type'=>'select2','validation'=>'required|integer|min:0','width'=>'col-sm-10','datatable'=>'subcategories, codigo','datatable_format'=>'codigo,\' - \',descripcion'];
+			//$this->form[] = ['label'=>'Subcategoría','name'=>'subcategory_id','type'=>'select2','validation'=>'required|integer|min:0','width'=>'col-sm-10','datatable'=>'subcategories,descripcion'];
+			//$this->form[] = ['label'=>'Terminado','name'=>'terminado','type'=>'number','validation'=>'required','width'=>'col-sm-9','style'=>'Entrego'];
 			# OLD END FORM
 
 			/* 
