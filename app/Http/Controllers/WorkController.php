@@ -44,13 +44,9 @@ class WorkController extends Controller
         $work = new Work($request->all());
         $work->save();
         if($work->order->restante <= 0){
-        	$work->order->terminado = 1;
+        	$work->order->terminado = 'Entregado';
         	$work->order->save();
             
-        }
-        if($work->order->terminado = 1){
-            $work->order->numero_de_pedido = 1;
-            $work->order->save();
         }
      	$order = \App::call('App\Http\Controllers\OrderController@index');
         return $order;

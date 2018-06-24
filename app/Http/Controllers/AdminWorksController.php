@@ -34,8 +34,10 @@
 			$this->col[] = ["label"=>"Fecha Trabajo Realizado","name"=>"created_at"];
 			$this->col[] = ["label"=>"Pedido","name"=>"order_id","join"=>"orders,numero_de_pedido"];
 			$this->col[] = ["label"=>"Fecha del Pedido","name"=>"order_id","join"=>"orders,created_at"];
-			$this->col[] = ["label"=>"Trabajador 1","name"=>"worker_id","join"=>"workers,nombre"];
-			$this->col[] = ["label"=>"Trabajador 2","name"=>"worker2_id","join"=>"workers,nombre"];
+			$this->col[] = ["label"=>"Nombre Trabajador 1","name"=>"worker_id","join"=>"workers,nombre"];
+			$this->col[] = ["label"=>"Apellido Trabajador 1","name"=>"worker_id","join"=>"workers,apellido"];
+			$this->col[] = ["label"=>"Nombre Trabajador 2","name"=>"worker2_id","join"=>"workers,nombre"];
+			$this->col[] = ["label"=>"Apellido Trabajador 2","name"=>"worker2_id","join"=>"workers,apellido"];
 			$this->col[] = ["label"=>"Cantidad","name"=>"cantidad"];
 			# END COLUMNS DO NOT REMOVE THIS LINE
 

@@ -44,7 +44,7 @@
 			$this->form[] = ['label'=>'Prioridad','name'=>'priority_id','type'=>'select2','validation'=>'required|integer|min:0','width'=>'col-sm-10','datatable'=>'priorities,nombre'];
 			$this->form[] = ['label'=>'Número de Pedido','name'=>'numero_de_pedido','type'=>'text','validation'=>'required','width'=>'col-sm-9'];
 			$this->form[] = ['label'=>'Cantidad','name'=>'cantidad','type'=>'number','validation'=>'required|integer|min:0','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Subcategoría','name'=>'subcategory_id','type'=>'select2','validation'=>'required|integer|min:0','width'=>'col-sm-10','datatable'=>'subcategories,descripcion'];
+			$this->form[] = ['label'=>'Subcategoría','name'=>'subcategory_id','type'=>'select2','validation'=>'required|integer|min:0','width'=>'col-sm-10','datatable'=>'subcategories,codigo','datatable_format'=>'codigo,\' - \',descripcion'];
 			# END FORM DO NOT REMOVE THIS LINE
 
 			# OLD START FORM
