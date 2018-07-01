@@ -34,14 +34,14 @@
             </div>
             <div class="col-sm tinto">
               <div class="contenedor">
-                <h1>Colaborador 1</h1>
+                <h1>Operador 1</h1>
                 <form @submit="addWork">
                   <select class="custom-select" name="worker" id="Select1" v-model="form.worker_id">
                     @foreach($workers as $worker)
                     <option value="{{$worker->id}}" v-if="form.worker2_id!={{$worker->id}}">{{$worker->nombre}} {{$worker->apellido}}</option>
                     @endforeach
                   </select><br><br>
-                  <h1>Colaborador 2</h1>
+                  <h1>Operador 2</h1>
                   <select class="custom-select" name="worker2" id="Select2" v-model="form.worker2_id">
                     @foreach($workers as $worker)
                     <option value="{{$worker->id}}" v-if="form.worker_id!={{$worker->id}}">{{$worker->nombre}} {{$worker->apellido}}</option>
@@ -52,6 +52,24 @@
                     <input class="form-control" type="number" v-model="form.cantidad" name="cantidad" placeholder="Ingrese una cantidad">
                   </div><br>
                   <button class="btn btn-primary" type="submit">Enviar</button>
+                  <button class="btn btn-primary" v-on:click="onReset">Cambio de Trabajadores</button>
+                  <div class="modal fade" id="myModal" role="dialog">
+                    <div class="modal-dialog">
+                      <!-- Modal content -->
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button class="close" type="button" data-dismiss="modal">×</button>
+                          <h4 class="modal-title">Modal Header</h4>
+                        </div>
+                        <div class="modal-body">
+                          <p>Some text in the modal.</p>
+                        </div>
+                        <div class="modal-footer">
+                          <button class="btn btn-default" type="button" data-dismiss="modal">Close</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </form>
                 <div class="clear"></div>
               </div>

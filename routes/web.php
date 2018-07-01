@@ -12,7 +12,11 @@
 */
 
 /*Route::get('/', function () {
-    return view('index');
+    //return view('index');
+    var_dump('current time is' . date("Y m d H:i:s"));
+
+    $date = new DateTime;
+    var_dump($date);
 });*/
 
 Route::get('/', 'WorkController@index');

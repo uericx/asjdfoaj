@@ -27,7 +27,7 @@ html(lang="es")
 								h2 @{{order.restante}}
 						.col-sm.tinto
 							.contenedor
-								h1 Colaborador 1
+								h1 Operador 1
 								//-{{dump($workers)}}
 								form(@submit="addWork")
 									select.custom-select(name="worker" id="Select1" v-model="form.worker_id")
@@ -38,7 +38,7 @@ html(lang="es")
 										
 									br
 									br
-									h1 Colaborador 2
+									h1 Operador 2
 									select.custom-select(name="worker2" id="Select2" v-model="form.worker2_id")
 										
 										@foreach($workers as $worker)
@@ -50,6 +50,19 @@ html(lang="es")
 										input.form-control(type='number' v-model="form.cantidad" name="cantidad" placeholder='Ingrese una cantidad')
 									br
 									button.btn.btn-primary(type='submit') Enviar
+									button.btn.btn-primary(v-on:click="onReset") Cambio de Trabajadores
+									#myModal.modal.fade(role='dialog')
+										.modal-dialog
+											// Modal content
+											.modal-content
+												.modal-header
+													button.close(type='button', data-dismiss='modal') ×
+													h4.modal-title Modal Header
+												.modal-body
+													p Some text in the modal.
+												.modal-footer
+													button.btn.btn-default(type='button', data-dismiss='modal') Close
+
 								.clear
 							.clear
  

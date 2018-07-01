@@ -8,6 +8,12 @@
 require('./bootstrap');
 
 window.Vue = require('vue');
+window.BootstrapVue = require('bootstrap-vue');
+Vue.use(BootstrapVue); 
+
+// import Router from 'vue-router';
+Vue.component('example-component', require('./components/ExampleComponent.vue'));
+
 import axios from 'axios';
 
 
@@ -17,7 +23,6 @@ import axios from 'axios';
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example-component', require('./components/ExampleComponent.vue'));
 
 const app = new Vue({   
     el: '#app',
@@ -39,7 +44,6 @@ const app = new Vue({
     methods: {
         onReset (evt) {
             evt.preventDefault(); 
-
             this.form.worker_id = '';
             this.form.worker2_id = '';
             this.form.cantidad = '';
